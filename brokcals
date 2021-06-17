@@ -1,0 +1,447 @@
+#include <cstdlib>
+#include <iostream>
+#include<time.h>
+#include <math.h>
+#include <windows.h>
+using namespace std;
+
+int main()
+{
+
+	setlocale(LC_ALL, "Russian");
+
+
+	std::cout << std::fixed << 221414252135125453453245325234.0 << std::endl;
+
+
+	cout << " " << "Кредитный калькулятор";
+
+	cout << endl;
+
+	cout << endl;
+
+
+	double summaezplat;
+
+	double stavka;
+
+	int srok;
+
+
+
+	double a = 0;
+	double c = a;
+
+	double itogmesstavka;
+
+	double kolvoplatezh;
+
+	double pereplata;
+
+	int summa;
+
+	double itogsumma;
+
+	int mesyaz;
+
+	double pereplata_za_srok;
+
+	double pereplata_za_proz_za_crok;
+
+	cout << "Введите ежемесячную процентную ставку: ";
+
+
+	cin >> stavka;
+
+	stavka = (stavka) / (100 * 12);
+
+
+	cout << endl;
+
+
+	cout << "Введите срок кредита в годах  : ";
+
+	cin >> srok;
+
+	srok = srok * 12;
+
+
+	cout << endl;
+
+
+	cout << "Введите сумму :";
+
+	cin >> summa;
+
+	cout << endl;
+
+
+	summaezplat = ((stavka * pow(1 + stavka, srok)) / (pow(1 + stavka, srok) - 1));
+
+
+
+	cout << "Введите срок в месяцах сколько платит клиент : ";
+
+
+	cin >> mesyaz;
+
+	kolvoplatezh = summaezplat * summa;
+
+	cout << endl;
+
+	cout << "Сумма ежемесячного платежа =  " << kolvoplatezh;
+
+
+	cout << endl;
+
+
+	cout << endl;
+
+
+	pereplata = (srok * kolvoplatezh) - summa;
+
+	cout << "Переплата по кредиту будет (процентами) = " << pereplata;
+
+	cout << endl;
+
+
+	double p;
+
+	double dolgchast;
+
+	cout << endl;
+
+
+
+	double ostatok;
+
+
+	int shethik = 0;
+
+	int* Arr = new int[srok];
+
+	cout << summa << " " << "|";
+
+
+
+	for (int i = 0; i < srok; i++)
+	{
+
+		kolvoplatezh;
+
+		cout << kolvoplatezh << " " << "|";
+
+
+		p = summa * stavka;//процентная часть которую отдает клиент 
+		if (p <= 0)
+		{
+
+			cout << 0;
+			cout << endl;
+
+		}
+
+		else
+		{
+			cout << p << " " << "|";
+		}
+
+
+
+
+		Arr[i] = p;
+
+
+
+		dolgchast = kolvoplatezh - p;
+		cout << dolgchast << " " << "|";
+
+		ostatok = summa - dolgchast;
+		if (ostatok <= 0)
+		{
+			cout << 0;
+			cout << endl;
+		}
+		else
+		{
+			cout << ostatok << " " << "|";
+			cout << endl;
+		}
+
+
+		if (ostatok <= 0)
+		{
+			for (int i = 0; i < 0 + mesyaz; i++)
+
+			{
+
+				shethik = shethik + Arr[i];
+
+
+
+
+
+			}
+
+
+
+		}
+
+		summa = ostatok;
+		if (summa <= 0)
+		{
+			cout << 0;
+			cout << endl;
+
+		}
+
+		else
+		{
+			cout << summa << " " << "|";
+		}
+
+
+
+
+
+
+
+
+
+	}
+
+
+
+	cout << endl;
+
+	cout << "Клиент заплатил за промежуток его пользования кредитом с процентами : ";
+
+	pereplata_za_srok = kolvoplatezh * mesyaz;
+
+	cout << pereplata_za_srok;
+
+	cout << endl;
+
+	cout << "Клиент заплатил за промежуток его пользования кредитом  проценты :";
+
+
+	cout << shethik;
+
+	cout << endl;
+
+	itogsumma = kolvoplatezh * srok;
+	cout << "Итого клиент отдаcт с процентами и основным долгом :" << itogsumma;
+
+
+	cout << endl;
+
+
+
+
+	cout << "--------------------------------------------------------------------------------------------" << endl;
+
+
+
+	double summaezplat2;
+
+	double stavka2;
+
+	double srok2;
+
+	double itogmesstavka2;
+
+	double kolvoplatezh2;
+
+	double pereplata2;
+
+	int summa2;
+
+	double itogsumma2;
+
+
+
+	cout << "Введите ежемесячную процентную ставку нашу которую предлагаем мы : ";
+
+
+	cin >> stavka2;
+
+	stavka2 = (stavka2) / (100 * 12);
+
+
+
+	cout << endl;
+
+
+
+	cout << "Введите срок кредита в годах который предлагаем мы   : ";
+
+	cin >> srok2;
+
+	srok2 = srok2 * 12;
+
+
+	cout << endl;
+
+
+
+
+	cout << "Введите сумму которую хочет клиент чтобы сделали мы :";
+
+	cin >> summa2;
+
+	cout << endl;
+
+
+	summaezplat2 = ((stavka2 * pow(1 + stavka2, srok2)) / (pow(1 + stavka2, srok2) - 1));
+
+
+
+
+
+	kolvoplatezh2 = summaezplat2 * summa2;
+
+
+
+	cout << "Сумма ежемесячного платежа с нами  =  " << kolvoplatezh2;
+
+
+	cout << endl;
+
+	cout << endl;
+
+
+
+
+
+
+
+	double p2;
+
+	double dolgchast2;
+
+	cout << endl;
+
+
+
+	double ostatok2;
+
+	pereplata2 = (srok2 * kolvoplatezh2) - summa2;
+
+	cout << "Переплата по кредиту будет (процентами) через насши условия = " << pereplata2;
+
+	cout << endl;
+
+	cout << endl;
+
+
+	itogsumma2 = pereplata2 + summa2;
+	cout << "Итого клиент отдает с процентами и основным долгом через наши услуги :" << itogsumma2;
+
+
+	cout << endl;
+
+	cout << endl;
+
+	itogsumma2 = (itogsumma2 / srok2);
+
+	cout << endl;
+
+
+
+
+
+
+
+
+
+
+	cout << summa2 << " " << "|";
+	for (int i = 0; i < srok2; i++)
+	{
+
+		kolvoplatezh2;
+
+		cout << kolvoplatezh2 << " " << "|";
+
+		p2 = summa2 * stavka2;//процентная часть которую отдает клиент 
+		cout << p2 << " " << "|";
+
+
+		dolgchast2 = kolvoplatezh2 - p2;
+		cout << dolgchast2 << " " << "|";
+
+		ostatok2 = summa2 - dolgchast2;
+		if (ostatok2 <= 0)
+		{
+			cout << 0;
+			cout << endl;
+		}
+		else
+		{
+			cout << ostatok2 << " " << "|";
+			cout << endl;
+		}
+
+		summa2 = ostatok2;
+		if (summa2 <= 0)
+		{
+			cout << "";
+			cout << endl;
+			break;
+		}
+		cout << summa2 << " " << "|";
+
+
+	}
+
+
+	cout << endl;
+
+
+
+	cout << endl;
+
+
+	itogsumma2 = pereplata2 + summa2;
+	cout << "Итого клиент отдает с процентами и основным долгом через наши услуги :" << itogsumma2;
+
+
+	cout << endl;
+
+	cout << endl;
+
+	itogsumma2 = (itogsumma2 / srok2);
+
+	cout << endl;
+
+
+	cout << "---------------------------------------------------------------------";
+
+
+	cout << "Расчет выгоды" << endl;
+
+
+
+
+	double pereplata_prosents;
+
+
+	pereplata_prosents = pereplata - pereplata2;
+
+
+	cout << "Переплата процентов   c  нами клиент экономит : " << " " << pereplata_prosents << endl;
+
+
+
+	double umenshenie_plateza_ezemes = kolvoplatezh - kolvoplatezh2;
+
+	cout << "Уменьшаем ежемесячный платеж (платеж клиента -платеж наш)" << " " << umenshenie_plateza_ezemes << endl;
+
+
+
+
+	system("pause");
+
+
+}
+
